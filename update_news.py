@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Twice-daily source-linked RSS digest, no AI or fabricated explanations."""
 import datetime as dt, email.utils, html, json, os, re, urllib.request, xml.etree.ElementTree as ET
+from urllib.parse import urljoin, urlparse
 from zoneinfo import ZoneInfo
 from pathlib import Path
 ROOT=Path(__file__).parent
@@ -12,6 +13,26 @@ def clean(value):
 def fetch(url):
     req=urllib.request.Request(url,headers={'User-Agent':'SamenBijDeTijd/1.0 (+RSS digest; personal project)'})
     with urllib.request.urlopen(req,timeout=15) as r: return r.read()
+def article_photo(link):
+    """Try the article's own Open Graph/Twitter photo when RSS has none."""
+    try:
+        host=urlparse(link).hostname or ''
+        if host not in ('nos.nl','www.nos.nl'):
+            return ''
+        req=urllib.request.Request(link,headers={'User-Agent':'Mozilla/5.0 (compatible; SamenBijDeTijd/1.0)'})
+        with urllib.request.urlopen(req,timeout=7) as response:
+            if 'text/html' not in response.headers.get('Content-Type',''):return ''
+            page=response.read(350000).decode('utf-8','ignore')
+        for tag in re.findall(r'<meta\b[^>]*>',page,re.I):
+            if re.search(r'(?:og:image|twitter:image)',tag,re.I):
+                m=re.search(r'\bcontent\s*=\s*["\']([^"\']+)',tag,re.I)
+                if m:
+                    candidate=urljoin(link,html.unescape(m.group(1)))
+                    if candidate.startswith('https://') and urlparse(candidate).hostname:return candidate
+    except Exception as exc:
+        print('Article photo unavailable:',str(exc)[:100])
+    return ''
+
 def entries(category,url):
     root=ET.fromstring(fetch(url)); out=[]
     for item in root.findall('.//item')[:18]:
@@ -32,8 +53,15 @@ def entries(category,url):
             description_html=item.findtext('description') or ''
             match=re.search(r'<img[^>]+src=[\"\'](https://[^\"\']+)[\"\']',description_html,re.I)
             if match:image=html.unescape(match.group(1))
+        if not image:image=article_photo(link)
         if not image and re.search(r'\bmicrosoft\b',title,re.I):
             image='microsoft-logo.svg'
+        if not image:
+            topic=(title+' '+summary).lower()
+            image=('onderwerp-oekraine.svg' if any(w in topic for w in ('oekra','zelensky','rusland')) else
+                   'onderwerp-zorg.svg' if any(w in topic for w in ('zorgpremie','ziekenhuis','zorgverzeker')) else
+                   'onderwerp-cyber.svg' if any(w in topic for w in ('hack','cyber','deepfake','noord-korea')) else
+                   'onderwerp-politiek.svg' if category=='Politiek' else '')
         stamp=item.findtext('pubDate') or ''
         try: published=email.utils.parsedate_to_datetime(stamp).astimezone(ZoneInfo('Europe/Amsterdam'))
         except Exception: published=now-dt.timedelta(days=2)

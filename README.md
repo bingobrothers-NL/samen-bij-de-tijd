@@ -54,3 +54,6 @@ Open een nieuwskaart met **Lees het verhaal**. De voorbeeldeditie bevat een uitg
 - Voor andere berichten zonder bronfoto blijft een neutrale categorieillustratie staan. We verzinnen geen nieuwsbeelden en kopiëren geen afbeeldingen van NOS of NU.nl buiten de beschikbare feed om.
 - De automatische workflow blijft elk uur lopen en schrijft nieuwe `image`-velden in `daily.json` en `sport.json`.
 - Upload de volledige inhoud van deze map naar de hoofdmap van je GitHub-repository. **Vervang bestaande bestanden** en voeg `microsoft-logo.svg` toe. De verborgen map `.github/workflows/update.yml` moet ook aanwezig blijven.
+
+## Foto per artikel
+De app toont nu bij **ieder voorbeeldartikel een eigen onderwerpafbeelding** in plaats van steeds dezelfde categorieafbeelding. Dit zijn herkenbare grafische afbeeldingen, **geen journalistieke foto's**. Zodra GitHub Actions draait, probeert `update_news.py` per nieuw artikel eerst de originele RSS-afbeelding te vinden, daarna de Open Graph-afbeelding van het bijbehorende NOS-artikel. Alleen wanneer de uitgever geen afbeelding beschikbaar stelt, valt de app terug op een onderwerpafbeelding. Er is dus geen garantie dat ieder actueel bericht een echte foto heeft. Controleer ook of externe beeldlinks mogen worden hergebruikt volgens de voorwaarden van de bron.

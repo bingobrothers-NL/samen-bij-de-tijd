@@ -16,7 +16,8 @@
         "Voor inwoners en bedrijven is vooral belangrijk welke voorstellen definitief wet worden, wanneer ze ingaan en welke groepen erdoor worden geraakt. Dat is niet uit alleen de uitslag van één stemming af te leiden.",
         "Voor de meest recente stand van zaken en de exacte belastingbedragen blijft de oorspronkelijke berichtgeving of officiële overheidspublicatie nodig."
       ],
-      "context": "Waarom dit belangrijk is: Een belastingplan bepaalt hoe de overheid belastingen wil heffen. De stemming kan doorgaan terwijl partijen in de regering het politiek oneens blijven. Of dat gevolgen heeft voor het kabinet is nog niet duidelijk."
+      "context": "Waarom dit belangrijk is: Een belastingplan bepaalt hoe de overheid belastingen wil heffen. De stemming kan doorgaan terwijl partijen in de regering het politiek oneens blijven. Of dat gevolgen heeft voor het kabinet is nog niet duidelijk.",
+      "image": "onderwerp-politiek.svg"
     },
     {
       "category": "Nederland",
@@ -31,7 +32,8 @@
         "Bij vergelijken is de maandprijs slechts één onderdeel. Kijk ook naar gecontracteerde zorgverleners, vergoedingen voor niet-gecontracteerde zorg en eventuele aanvullende verzekeringen.",
         "Het is verstandig de definitieve polisvoorwaarden te bekijken voordat je overstapt. De exacte bedragen kunnen per aanbieder verschillen."
       ],
-      "context": "Waarom dit belangrijk is: De zorgpremie is het maandbedrag voor je basisverzekering. De uiteindelijke premie hangt af van je verzekeraar en polis. Vergelijk daarom de voorwaarden en niet alleen de prijs."
+      "context": "Waarom dit belangrijk is: De zorgpremie is het maandbedrag voor je basisverzekering. De uiteindelijke premie hangt af van je verzekeraar en polis. Vergelijk daarom de voorwaarden en niet alleen de prijs.",
+      "image": "onderwerp-zorg.svg"
     },
     {
       "category": "Wereld",
@@ -46,7 +48,8 @@
         "De aankondiging dat Europese vertegenwoordigers zouden deelnemen, zegt op zichzelf nog niets over het slagen van onderhandelingen. Daarvoor moeten de betrokken partijen overeenstemming bereiken over concrete voorwaarden.",
         "Let bij vervolgberichten op het verschil tussen een voorstel, een geplande bijeenkomst en een daadwerkelijk ondertekend akkoord."
       ],
-      "context": "Waarom dit belangrijk is: Europese landen steunen Oekraïne op verschillende manieren en willen daarom invloed op afspraken over de veiligheid in Europa. Een aangekondigde deelname is nog geen vredesakkoord."
+      "context": "Waarom dit belangrijk is: Europese landen steunen Oekraïne op verschillende manieren en willen daarom invloed op afspraken over de veiligheid in Europa. Een aangekondigde deelname is nog geen vredesakkoord.",
+      "image": "onderwerp-oekraine.svg"
     },
     {
       "category": "Technologie",
@@ -77,7 +80,8 @@
         "De belangrijkste praktische les is om een onverwacht dringend verzoek niet alleen op basis van stem of video te vertrouwen. Neem via een bekend telefoonnummer of een ander onafhankelijk kanaal contact op met de betreffende persoon.",
         "De precieze toedracht en omvang van een specifiek onderzoek moeten altijd aan de hand van de oorspronkelijke bronnen worden gecontroleerd."
       ],
-      "context": "Waarom dit belangrijk is: Een deepfake is met AI gemaakt beeld of geluid dat echt lijkt. Het bericht onderstreept waarom je ongebruikelijke verzoeken om geld of toegang beter via een tweede kanaal controleert."
+      "context": "Waarom dit belangrijk is: Een deepfake is met AI gemaakt beeld of geluid dat echt lijkt. Het bericht onderstreept waarom je ongebruikelijke verzoeken om geld of toegang beter via een tweede kanaal controleert.",
+      "image": "onderwerp-cyber.svg"
     }
   ]
 }
