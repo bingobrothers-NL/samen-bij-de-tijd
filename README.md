@@ -47,3 +47,10 @@ Open een nieuwskaart met **Lees het verhaal**. De voorbeeldeditie bevat een uitg
 - De sportpagina heeft filters voor voetbal, Formule 1, wielrennen, tennis en overig.
 - Offline toont sport.html duidelijk gemarkeerde algemene sportuitleg, **geen verzonnen actuele uitslagen**. Na publicatie maakt de workflow `sport.json` op basis van de NOS-sportfeed, wanneer deze bereikbaar is.
 - De bestaande vijf handmatig samengestelde nieuwsvoorbeelden hebben langere achtergrondteksten. Automatische RSS-berichten blijven beperkt tot de beschikbare feedinformatie; er is nog geen AI-onderzoek of volledige artikelverdieping.
+
+## Nieuwsafbeeldingen (nieuwe versie)
+- Nieuwskaarten tonen waar beschikbaar de **originele foto uit de RSS-feed van de nieuwsbron**. Dit is niet automatisch bij elk bericht beschikbaar.
+- Voor Microsoft-nieuws zonder bronfoto gebruikt de app `microsoft-logo.svg`, lokaal meegeleverd.
+- Voor andere berichten zonder bronfoto blijft een neutrale categorieillustratie staan. We verzinnen geen nieuwsbeelden en kopiëren geen afbeeldingen van NOS of NU.nl buiten de beschikbare feed om.
+- De automatische workflow blijft elk uur lopen en schrijft nieuwe `image`-velden in `daily.json` en `sport.json`.
+- Upload de volledige inhoud van deze map naar de hoofdmap van je GitHub-repository. **Vervang bestaande bestanden** en voeg `microsoft-logo.svg` toe. De verborgen map `.github/workflows/update.yml` moet ook aanwezig blijven.

@@ -18,13 +18,22 @@ def entries(category,url):
         title=clean(item.findtext('title')); link=(item.findtext('link') or '').strip()
         summary=clean(item.findtext('description'))
         image=''
+        # Prefer editorial photos supplied by the publisher's RSS feed.
+        # Never guess an unrelated stock photo for an article.
         for child in item:
             tag=child.tag.rsplit('}',1)[-1]
-            if tag in ('thumbnail','content','enclosure'):
+            if tag in ('thumbnail','content','enclosure','image'):
                 candidate=child.attrib.get('url','')
                 typ=child.attrib.get('type','')
                 if candidate.startswith('https://') and (tag!='enclosure' or typ.startswith('image/')):
                     image=candidate;break
+        if not image:
+            # Some feeds include the photo only inside the HTML description.
+            description_html=item.findtext('description') or ''
+            match=re.search(r'<img[^>]+src=[\"\'](https://[^\"\']+)[\"\']',description_html,re.I)
+            if match:image=html.unescape(match.group(1))
+        if not image and re.search(r'\bmicrosoft\b',title,re.I):
+            image='microsoft-logo.svg'
         stamp=item.findtext('pubDate') or ''
         try: published=email.utils.parsedate_to_datetime(stamp).astimezone(ZoneInfo('Europe/Amsterdam'))
         except Exception: published=now-dt.timedelta(days=2)

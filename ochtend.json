@@ -61,7 +61,8 @@
         "Een technische storing is niet automatisch het gevolg van een cyberaanval. De oorzaak kan pas worden vastgesteld wanneer de aanbieder daarover betrouwbare informatie publiceert.",
         "Voor de actuele status zijn de officiële statuspagina van Microsoft en de meest recente berichtgeving de aangewezen bronnen."
       ],
-      "context": "Waarom dit belangrijk is: Veel bedrijven en organisaties gebruiken dezelfde clouddiensten. Daardoor kan één technische storing wereldwijd merkbaar zijn. De omvang en herstelduur kunnen veranderen."
+      "context": "Waarom dit belangrijk is: Veel bedrijven en organisaties gebruiken dezelfde clouddiensten. Daardoor kan één technische storing wereldwijd merkbaar zijn. De omvang en herstelduur kunnen veranderen.",
+      "image": "microsoft-logo.svg"
     },
     {
       "category": "Cyberveiligheid",
